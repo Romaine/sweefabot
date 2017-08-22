@@ -13,7 +13,18 @@ bot = commands.Bot(command_prefix='/', description=description)
 
 @bot.command()
 async def say(*text):
-    await _say(text)
+    await _say(*text)
+
+
+@bot.command()
+async def arabs():
+    word = "arabs"
+    await _say(word.replace("s", "th").replace("r", "w"))
+
+
+@bot.command()
+async def lisp(*text):
+    await _say(*[word.replace("s", "th").replace("r", "w") for word in text])
 
 
 async def _say(*text):
@@ -38,19 +49,7 @@ async def youtube(*args):
 
 @bot.event
 async def on_voice_state_update(before, after):
-    for state in replies.keys():
-        before_state = getattr(before, state)
-        after_state = getattr(after, state)
-        if before_state != after_state:
-            if state == "mute":
-                await _say(replies["deaf" if state.deaf else "mute"][after_state].format(after.display_name))
-                break
-            elif state == "self_mute":
-                await _say(replies["self_deaf" if "self_deaf" else "self_mute"][after_state].format(after.display_name))
-                break
-            else:
-                await _say(replies[state][after_state].format(after.display_name))
-                break
+    pass#if after
 
 @bot.event
 async def on_ready():
