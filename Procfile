@@ -1,1 +1,1 @@
-bot: python3 Sweefabot.py
+bot: python3 sweefabot.py
