@@ -9,12 +9,9 @@ certifi==2017.7.27.1
 discord==0.0.2
 ed25519ll==0.6
 protobuf==3.4.0
-java==0.0.1
 jsonschema==2.6.0
 keyring==10.4.0
 ndg_httpsclient==0.4.2
-nt==0.0.0
-org==1.0.0
 pytest==3.2.1
 redis==2.10.6
 wincertstore==0.2
