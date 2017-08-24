@@ -6,7 +6,6 @@ Cython==0.26
 pyOpenSSL==17.2.0
 backports.functools_lru_cache==1.4
 certifi==2017.7.27.1
-com==1.0.0
 discord==0.0.2
 ed25519ll==0.6
 protobuf==3.4.0
