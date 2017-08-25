@@ -4,4 +4,4 @@ pyOpenSSL==17.2.0
 discord==0.0.2
 keyring==10.4.0
 requests==2.9.1
-pynacl==1.2.2
+pynacl==1.1.2
