@@ -11,6 +11,8 @@ token = os.environ.get('token')
 
 description = "The most MLG bot in the world"
 bot = commands.Bot(command_prefix='/', description=description)
+if not discord.opus.is_loaded():
+    discord.opus.load_opus()
 
 
 @bot.command()
