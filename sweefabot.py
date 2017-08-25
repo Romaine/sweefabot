@@ -1,11 +1,12 @@
 import discord
 import asyncio
 
-from auth import token
 from discord.ext import commands
 from mlgvoice import download
 from replies import replies
 
+
+token = os.environ.get('token')
 
 description = "The most MLG bot in the world"
 bot = commands.Bot(command_prefix='/', description=description)
