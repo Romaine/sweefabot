@@ -1,1 +1,1 @@
-web: python3 sweefabot.py
+worker: python3 sweefabot.py
