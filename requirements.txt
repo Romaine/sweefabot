@@ -5,3 +5,4 @@ discord==0.0.2
 keyring==10.4.0
 requests==2.9.1
 pynacl==1.1.2
+ws4py==0.3.4
