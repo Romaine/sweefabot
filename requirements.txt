@@ -3,3 +3,4 @@ pyasn1==0.1.9
 pyOpenSSL==17.2.0
 discord==0.0.2
 keyring==10.4.0
+requests==2.9.1
