@@ -62,7 +62,7 @@ async def on_ready():
     print(bot.user.id)
     print('------')
 
-    if discord.opus.is_loaded():
+    if not discord.opus.is_loaded():
         discord.opus.load_opus(find_library("opus"))
 
     channel = bot.get_channel('314489891859726347')
