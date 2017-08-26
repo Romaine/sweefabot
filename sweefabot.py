@@ -5,14 +5,14 @@ import os
 from discord.ext import commands
 from mlgvoice import download
 from replies import replies
+from ctypes.util import find_library
 
 
-token = os.environ.get('token')
-
+# token = os.environ.get('token')
+token = "MzI2NjY0NzcwOTY1MjA5MDg4.DIIQ-w.WIhkQq9DAarRhjzCAMji5TEUzvw"
 description = "The most MLG bot in the world"
 bot = commands.Bot(command_prefix='/', description=description)
-if not discord.opus.is_loaded():
-    discord.opus.load_opus()
+
 
 
 @bot.command()
@@ -61,6 +61,9 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
+
+    if discord.opus.is_loaded():
+        discord.opus.load_opus(find_library("opus"))
 
     channel = bot.get_channel('314489891859726347')
     bot.voice = await bot.join_voice_channel(channel)
