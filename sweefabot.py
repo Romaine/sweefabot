@@ -14,7 +14,6 @@ description = "The most MLG bot in the world"
 bot = commands.Bot(command_prefix='/', description=description)
 
 
-
 @bot.command()
 async def say(*text):
     await _say(*text)
