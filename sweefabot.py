@@ -63,7 +63,7 @@ async def on_ready():
 
     if not discord.opus.is_loaded():
         #discord.opus.load_opus(find_library("opus"))
-        discord.opus.load_opus()
+        discord.opus.load_opus("opus")
 
     channel = bot.get_channel('314489891859726347')
     bot.voice = await bot.join_voice_channel(channel)
