@@ -8,7 +8,7 @@ from replies import replies
 from ctypes.util import find_library
 
 
-# token = os.environ.get('token')
+# hack
 token = "MzI2NjY0NzcwOTY1MjA5MDg4.DIIQ-w.WIhkQq9DAarRhjzCAMji5TEUzvw"
 description = "The most MLG bot in the world"
 bot = commands.Bot(command_prefix='/', description=description)
@@ -62,8 +62,7 @@ async def on_ready():
     print('------')
 
     if not discord.opus.is_loaded():
-        #discord.opus.load_opus(find_library("opus"))
-        discord.opus.load_opus("opus")
+        discord.opus.load_opus(find_library("opus"))
 
     channel = bot.get_channel('314489891859726347')
     bot.voice = await bot.join_voice_channel(channel)
