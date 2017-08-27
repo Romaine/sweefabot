@@ -8,7 +8,6 @@ from replies import replies
 from ctypes.util import find_library
 
 
-# hack
 token = "MzI2NjY0NzcwOTY1MjA5MDg4.DIIQ-w.WIhkQq9DAarRhjzCAMji5TEUzvw"
 description = "The most MLG bot in the world"
 bot = commands.Bot(command_prefix='/', description=description)
