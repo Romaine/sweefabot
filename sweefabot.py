@@ -5,7 +5,6 @@ import os
 from discord.ext import commands
 from mlgvoice import download
 from replies import replies
-from ctypes.util import find_library
 
 
 token = "MzI2NjY0NzcwOTY1MjA5MDg4.DIIQ-w.WIhkQq9DAarRhjzCAMji5TEUzvw"
