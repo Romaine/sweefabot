@@ -7,7 +7,7 @@ from mlgvoice import download
 from replies import replies
 
 
-token = "MzI2NjY0NzcwOTY1MjA5MDg4.DIIQ-w.WIhkQq9DAarRhjzCAMji5TEUzvw"
+token = os.environ['token']
 description = "The most MLG bot in the world"
 bot = commands.Bot(command_prefix='/', description=description)
 
