@@ -51,7 +51,7 @@ async def youtube(*args):
 
 @bot.event
 async def on_voice_state_update(before, after):
-    pass#if after
+    pass #if after
 
 @bot.event
 async def on_ready():
