@@ -7,4 +7,4 @@ requests==2.9.1
 pynacl==1.1.2
 ws4py==0.3.4
 opuslib==1.1.0
-youtube==2017.9.2
+youtube_dl==2017.9.2
