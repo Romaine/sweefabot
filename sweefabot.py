@@ -5,7 +5,7 @@ import os
 from discord.ext import commands
 from mlgvoice import download
 from replies import replies
-
+from subprocess import call
 
 token = os.environ['token']
 description = "The most MLG bot in the world"
@@ -15,6 +15,13 @@ bot = commands.Bot(command_prefix='/', description=description)
 @bot.command()
 async def say(*text):
     await _say(*text)
+
+async def _say(*text):
+    if hasattr(bot, "player"):
+        bot.player.pause()
+    mp3 = download(" ".join(text), 4, 1, 5)
+    player = bot.voice.create_ffmpeg_player(mp3)
+    player.start()
 
 
 @bot.command()
@@ -27,14 +34,9 @@ async def arabs():
 async def lisp(*text):
     await _say(*[word.replace("s", "th").replace("r", "w") for word in text])
 
-
-async def _say(*text):
-    if hasattr(bot, "player"):
-        bot.player.pause()
-    mp3 = download(" ".join(text), 4, 1, 5)
-    player = bot.voice.create_ffmpeg_player(mp3)
-    player.start()
-
+@bot.command()
+async def restart():
+    await call(["heroku", "ps:restart"])
 
 @bot.command()
 async def youtube(*args):
