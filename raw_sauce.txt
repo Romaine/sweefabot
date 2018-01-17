@@ -25,4 +25,4 @@ languages[24]=new Option("Russian","21");
 languages[25]=new Option("Spanish","2");
 languages[26]=new Option("Swedish","9");
 languages[27]=new Option("Thai","26");
-languages[28]=new Option("Turkish","16")*
+languages[28]=new Option("Turkish","16")
