@@ -19,9 +19,12 @@ for line in part1:
 
 for line in part2:
     if line:
-        for i, lingo in enumerate(tts_dict.keys()):
+        for i, lingo in tts_dict.keys():
             if lang.match(line).group(1) == lingo:
-                tts_dict[lingo][1].append((option.match(line).group(1)).replace("\"", "").split(", "))
+                tts_dict[lingo][1].append((option.match(line)
+                                                 .group(1))
+                                                 .replace("\"", "")
+                                                 .split(", "))
 
 print(tts_dict)
 with open("tts_dict.json", "w") as out:

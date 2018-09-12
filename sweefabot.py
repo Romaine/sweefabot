@@ -1,6 +1,7 @@
 import discord
 import asyncio
 import os
+import json
 
 from discord.ext import commands
 from mlgvoice import download
@@ -10,16 +11,19 @@ from subprocess import call
 token = os.environ['token']
 description = "The most MLG bot in the world"
 bot = commands.Bot(command_prefix='/', description=description)
+tts_dict = json.load(open("tts_dict.json", "r"))
+tts_params = []
 
 
 @bot.command()
 async def say(*text):
     await _say(*text)
 
+
 async def _say(*text):
     if hasattr(bot, "player"):
         bot.player.pause()
-    mp3 = download(" ".join(text), 4, 1, 5)
+    mp3 = download(" ".join(text), *tts_params)
     player = bot.voice.create_ffmpeg_player(mp3)
     player.start()
 
@@ -34,9 +38,11 @@ async def arabs():
 async def lisp(*text):
     await _say(*[word.replace("s", "th").replace("r", "w") for word in text])
 
+
 @bot.command()
 async def restart():
     await call(["heroku", "ps:restart"])
+
 
 @bot.command()
 async def youtube(*args):
@@ -50,9 +56,31 @@ async def youtube(*args):
         bot.player = await bot.voice.create_ytdl_player(link)
         bot.player.start()
 
+async def yt(*args):
+    await youtube(*args)
+
+
+
+
+@bot.command()
+async def TTS(*args):
+    if len(args[0]):
+        if args[0] == "set":
+            pass
+        elif args[0] in ["list", "l"]:
+            if len(args) >= 2:
+                if args[0] in tts_dict.keys():
+                    print(tts_dict[args[0]])
+            else:
+                for i, lang in tts_dict.items():
+                    print(i, lang[0])
+                    bot.send_message(bot., " ".join([i, lang]))
+
+
 @bot.event
 async def on_voice_state_update(before, after):
     pass #if after
+
 
 @bot.event
 async def on_ready():
@@ -64,7 +92,7 @@ async def on_ready():
     if not discord.opus.is_loaded():
         discord.opus.load_opus("/app/.heroku/vendor/lib/libopus.so")
 
-    channel = bot.get_channel('314489891859726347')
+    channel = bot.get_channel('327111755547279381')
     bot.voice = await bot.join_voice_channel(channel)
 
 bot.run(token)
