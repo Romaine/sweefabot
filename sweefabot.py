@@ -74,7 +74,7 @@ async def TTS(*args):
             else:
                 for i, lang in tts_dict.items():
                     print(i, lang[0])
-                    bot.send_message(bot., " ".join([i, lang]))
+                    #bot.send_message(bot., " ".join([i, lang]))
 
 
 @bot.event
